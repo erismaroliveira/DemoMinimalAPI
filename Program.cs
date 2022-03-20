@@ -92,6 +92,10 @@ app.Run();
 
 void MapActions(WebApplication app)
 {
+    app.MapGet("/", () => "Hello World!")
+        .WithName("Index")
+        .WithTags("Index");
+
     app.MapPost("/registro", [AllowAnonymous] async (
     SignInManager<IdentityUser> signInManager,
     UserManager<IdentityUser> userManager,
